@@ -15,6 +15,7 @@ class _AuthFormState extends State<AuthForm> {
   var _password = "";
   var _username = "";
   bool isLogin = false;
+  String img = "images/todo.png";
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,47 @@ class _AuthFormState extends State<AuthForm> {
         children: [
           // Padding(padding: EdgeInsets.only(left: 10 , right: 10)),
           // Padding(padding: EdgeInsets.all(15)),
+          
+          //  AssetImage(img),
+         Container(
+        height: 150,
+        width: 150,
+        decoration: BoxDecoration(
+          // not working with "Decoration()"
+
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 10,
+              // color: Colors.black,
+              spreadRadius: 4.0,
+            )
+            // shadow is given to box decoration and not to decoration image
+          ],
+
+          image: const DecorationImage(
+            // image: Image.network(
+            image: NetworkImage( 
+              'https://www.onmsft.com/wp-content/uploads/2020/03/microsofttododarkmode.jpg',
+              scale: 10,
+
+              // fit: BoxFit.cover,
+            ),
+            fit: BoxFit.cover,
+          ),
+          // color: Colors.red,
+
+          borderRadius: BorderRadius.circular(20),
+          // this border radius is not applying at image so we have to change something here...
+        ),
+        // color: Colors.red,
+        // child: Image.network(
+        //   'https://m.media-amazon.com/images/M/MV5BMTY4NTU1NTEwNV5BMl5BanBnXkFtZTcwMzE1NzAwNg@@._V1_.jpg',
+        //   fit: BoxFit.cover,
+        // ),
+        ),
+
+            const SizedBox(height: 11,),
+          
           Form(
             key: _formkey, // to validate the form
             child: Column(
